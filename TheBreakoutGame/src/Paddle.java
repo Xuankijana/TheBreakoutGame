@@ -6,13 +6,20 @@ public class Paddle extends Sprite {
 	
 	public Paddle() {
 		// TODO: Set width to Settings.PADDLE_WIDTH
-		// TODO: Set width to Settings.PADDLE_HEIGHT
+		setWidth(Settings.PADDLE_WIDTH);
+		
+		// TODO: Set height to Settings.PADDLE_HEIGHT
+		setHeight(Settings.PADDLE_HEIGHT);
+		
 		// TODO: Call resetPosition
+		resetPosition();
 	}
 	
 	public void resetPosition() {
 		// TODO: Set initial position x and y (use INITIAL_PADDLE_X/Y)
 		// Note: Check Ball.java for a hint
+		setX(Settings.INITIAL_PADDLE_X);
+		setY(Settings.INITIAL_PADDLE_Y);		
 	}
 	
 	public void update() {

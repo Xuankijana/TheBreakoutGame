@@ -19,4 +19,5 @@ public class Settings {
 	public static final int MESSAGE_POSITION = 270;
 	public static final int LIVES_POSITION_X = 5;
 	public static final int LIVES_POSITION_Y = 15;
+	
 }
