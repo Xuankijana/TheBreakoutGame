@@ -168,7 +168,7 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
         
         // Draw lives left
         // TODO: Draw lives left in the top left hand corner              
-        g.drawString("Lives : "+livesLeft, Settings.LIVES_POSITION_X, Settings.LIVES_POSITION_X);
+        g.drawString("Lives left : "+livesLeft, Settings.LIVES_POSITION_X, Settings.LIVES_POSITION_Y);
         
         
         // Draw screen message
