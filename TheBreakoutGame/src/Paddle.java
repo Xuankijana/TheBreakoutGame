@@ -27,9 +27,11 @@ public class Paddle extends Sprite {
 		
 		// TODO: Prevent the paddle from moving outside of the screen
 		// This can be done using two if statements (one for the left side of the screen and one for the right)
-		if (x < 0) {
+		if (x <= 0) {
 			x = 0; 
-		} else if (x + Settings.PADDLE_WIDTH > Settings.WINDOW_WIDTH) {
+		} 
+		
+		if (x + Settings.PADDLE_WIDTH >= Settings.WINDOW_WIDTH) {
 			x = Settings.WINDOW_WIDTH - Settings.PADDLE_WIDTH; 
 		}
 
