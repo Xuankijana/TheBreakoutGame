@@ -13,6 +13,7 @@ import javax.swing.Timer;
 public class BreakoutPanel extends JPanel implements ActionListener, KeyListener {
 	
 	static final long serialVersionUID = 2L;
+	private final static int TIMER_DELAY = 5;
 
 	private boolean gameRunning = true;
 	private int livesLeft = 3;
@@ -26,12 +27,18 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 		addKeyListener(this);
 		setFocusable(true);
 		
-		Timer timer = new Timer(5, this);
+		Timer timer = new Timer(TIMER_DELAY, this);
 		timer.start();
 		
 		// TODO: Create a new ball object and assign it to the appropriate variable
+		ball = new Ball();
+		
 		// TODO: Create a new paddle object and assign it to the appropriate variable
+		paddle = new Paddle();
+		
 		// TODO: Create a new bricks array (Use Settings.TOTAL_BRICKS)
+		bricks = new Brick[Settings.TOTAL_BRICKS];
+		
 		// TODO: Call the createBricks() method
 		createBricks();
 	}
@@ -53,11 +60,17 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 	
 	private void paintBricks(Graphics g) {
 		// TODO: Loop through the bricks and call the paint() method
+		for (int i = 0; i < Settings.TOTAL_BRICKS; i++) {
+			bricks[i].paint(g);
+		}
+		
 	}
 	
 	private void update() {
 		if(gameRunning) {
 			// TODO: Update the ball and paddle
+			ball.update();
+			paddle.update();		
 			collisions();
 			repaint();
 		}
