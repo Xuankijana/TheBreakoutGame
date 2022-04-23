@@ -33,24 +33,25 @@ public class Ball extends Sprite {
 		y += yVelocity;
 		
 		// Bounce off left side of screen
-		if(x <= 0 + Settings.BRICK_HORI_PADDING ) {
+		if(x <= 0) {
 			// TODO: Set x to 0 so it does not leave the screen
 			// UPDATE: As there are paddings in the bricks so set ball to be within this padding area 			
-			x = 0 + Settings.BRICK_HORI_PADDING;
+			x = 0;
 			
 			// TODO: Change the x velocity to make the ball go right
-			xVelocity = 1*xVelocity; 
+			setXVelocity(1); 			
+			
 		}
 		
 		// Bounce off right side of screen
-		if(x >= Settings.WINDOW_WIDTH - Settings.BALL_WIDTH - Settings.BRICK_HORI_PADDING) {
+		if(x >= Settings.WINDOW_WIDTH - Settings.BALL_WIDTH) {
 			// TODO: Set x to the right edge of the screen (see the above if condition)
-			// UPDATE: As there are paddings in the bricks so set ball to be within this padding area
 			
-			x = Settings.WINDOW_WIDTH - Settings.BALL_WIDTH - Settings.BRICK_HORI_PADDING;
+			x = Settings.WINDOW_WIDTH - Settings.BALL_WIDTH;
 			
 			// TODO: Change the x velocity to make the ball go left
-			xVelocity = -1*xVelocity; 
+			setXVelocity(-1); 
+			
 		}
 		
 		// Bounce off top of screen
@@ -58,7 +59,7 @@ public class Ball extends Sprite {
 			// TODO: Set y to 0 so it does not leave the screen
 			y = 0; 
 			// TODO: Change the y velocity to make the ball go downward
-			yVelocity = -1*yVelocity; 
+			setYVelocity(1); 
 		}
 		
 	}
