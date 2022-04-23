@@ -78,11 +78,13 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
 	
 	private void gameOver() {
 		// TODO: Set screen message
+		screenMessage = "Game Over!"; 
 		stopGame();
 	}
 	
 	private void gameWon() {
 		// TODO: Set screen message
+		screenMessage = "Game Won!"; 
 		stopGame();
 	}
 	
@@ -165,7 +167,9 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
         paintBricks(g);
         
         // Draw lives left
-        // TODO: Draw lives left in the top left hand corner
+        // TODO: Draw lives left in the top left hand corner              
+        g.drawString("Lives : "+livesLeft, Settings.LIVES_POSITION_X, Settings.LIVES_POSITION_X);
+        
         
         // Draw screen message
         if(screenMessage != null) {
@@ -176,13 +180,22 @@ public class BreakoutPanel extends JPanel implements ActionListener, KeyListener
     }
 
 	@Override
-	public void keyPressed(KeyEvent e) {
+	public void keyPressed(KeyEvent event) {
 		// TODO: Set the velocity of the paddle depending on whether the player is pressing left or right
+		if(event.getKeyCode() == KeyEvent.VK_LEFT) {
+            paddle.setXVelocity(-1);
+      } else if(event.getKeyCode() == KeyEvent.VK_RIGHT) {
+            paddle.setXVelocity(1);
+      }		
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
+	public void keyReleased(KeyEvent event) {
 		// TODO: Set the velocity of the paddle after the player has released the keys
+		if(event.getKeyCode() == KeyEvent.VK_LEFT || event.getKeyCode() == KeyEvent.VK_RIGHT) {
+            paddle.setXVelocity(0);
+        }
+		
 	}
 
 	@Override
